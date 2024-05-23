@@ -1,0 +1,43 @@
+﻿<Window x:Class="Gruppe.net_HarbourFrameworks_WPF.Views.SpaceView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Space Management" Height="450" Width="800">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="2*" />
+			<ColumnDefinition Width="3*" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+
+		<!-- Space Input Section -->
+		<StackPanel Grid.Column="0" Margin="10">
+			<TextBlock Text="Space Type" Margin="0,0,0,5"/>
+			<ComboBox ItemsSource="{Binding SpaceTypes}" SelectedItem="{Binding SelectedSpaceType}" Margin="0,0,0,10"/>
+
+			<TextBlock Text="Number of Cranes (for Loading Space)" Margin="0,0,0,5"/>
+			<TextBox Text="{Binding NumberOfCranes, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" />
+
+			<Button Content="Create Space" Command="{Binding CreateSpaceCommand}" Margin="0,0,0,10" />
+
+			<ListBox ItemsSource="{Binding Spaces}" DisplayMemberPath="SpaceType"
+                     SelectedItem="{Binding SelectedSpace}" Margin="0,0,0,10" />
+		</StackPanel>
+
+		<!-- Ship Management Section -->
+		<StackPanel Grid.Column="1" Margin="10">
+			<TextBlock Text="All Ships" Margin="0,0,0,5"/>
+			<ListBox ItemsSource="{Binding Ships}" DisplayMemberPath="Name"
+                     SelectedItem="{Binding SelectedShip}" Margin="0,0,0,10" />
+
+			<TextBlock Text="Ships in Selected Space" Margin="0,0,0,5"/>
+			<ListBox ItemsSource="{Binding SelectedSpace.Ships}" DisplayMemberPath="Name"
+                     SelectedItem="{Binding SelectedShipInSpace}" Margin="0,0,0,10" />
+
+			<Button Content="Schedule Arrival" Command="{Binding ScheduleArrivalCommand}" Margin="0,0,0,10" />
+			<Button Content="Schedule Departure" Command="{Binding ScheduleDepartureCommand}" Margin="0,0,0,10" />
+		</StackPanel>
+	</Grid>
+</Window>

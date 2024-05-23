@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "kFDPhYMKNbbHBL/eedDCb+Wn1BBsVROsI+CtY9HKVnn/iFEXW1UzMsbadSa72hAqzSFd7eX+z2kmF/fGsflsBA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\grani\\source\\repos\\Gruppe.net-HarbourFrameworks-WPF\\Gruppe.net-HarbourFrameworks-WPF.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\grani\\.nuget\\packages\\gruppe.net-harbour-classlibrarytest-2\\1.0.0\\gruppe.net-harbour-classlibrarytest-2.1.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

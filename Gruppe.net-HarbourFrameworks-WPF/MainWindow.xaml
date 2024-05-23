@@ -1,0 +1,42 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Ship Input Section -->
+        <StackPanel Grid.Column="0" Margin="10">
+            <TextBlock Text="Ship Name" Margin="0,0,0,5"/>
+            <TextBox Text="{Binding ShipName, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" />
+
+            <TextBlock Text="Ship Type" Margin="0,0,0,5"/>
+            <TextBox Text="{Binding ShipType, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" />
+
+            <Button Content="Create Ship" Command="{Binding CreateShipCommand}" Margin="0,0,0,10" />
+            <Button Content="Manage Spaces" Command="{Binding OpenSpaceViewCommand}" Margin="0,0,0,10" />
+
+            <ListBox ItemsSource="{Binding Ships}" DisplayMemberPath="Name"
+                     SelectedItem="{Binding SelectedShip}" Margin="0,0,0,10" />
+        </StackPanel>
+
+        <!-- Container Input Section -->
+        <StackPanel Grid.Column="1" Margin="10">
+            <TextBlock Text="Container Length Type" Margin="0,0,0,5"/>
+            <ComboBox ItemsSource="{Binding ContainerLengthTypes}" SelectedItem="{Binding ContainerLengthType}" Margin="0,0,0,10"/>
+
+            <Button Content="Add Container" Command="{Binding AddContainerCommand}" Margin="0,0,0,10" />
+            <Button Content="Remove Container" Command="{Binding RemoveContainerCommand}" Margin="0,0,0,10" />
+
+            <ListBox ItemsSource="{Binding SelectedShip.ListOfContainersOnShip}" DisplayMemberPath="ContainerId"
+                     SelectedItem="{Binding SelectedContainer}" />
+        </StackPanel>
+    </Grid>
+</Window>
